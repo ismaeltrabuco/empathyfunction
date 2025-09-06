@@ -1,61 +1,57 @@
-# Empathy Function and Empathetic - PINN
+# Empathy Function: From Abstract Math to Human-Centered AI
 
-Empathy Function teaches machine empathy to understand context in feeling and emotional signals from inputs
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > *"Empathy, I believe, must become code."*
 
-A first prototype of **Empathetic Physics-Informed Neural Networks (E-PINNs)**.
-Born from the fusion of mathematics, physics, fashion, and performance art.
+A prototype implementation of **Empathetic Physics-Informed Neural Networks (E-PINNs)**, born from the fusion of mathematics, physics, art, and human behavior understanding.
 
-##  What The Empathy Function Does
+---
 
-The Empathy Function measures **dynamic alignment between a system’s internal state and external feedback**, enabling AI systems to not just predict, but to *tune themselves* in ways coherent with human-like behavior.
+## What The Empathy Function Does
 
-### Core Innovation
+The Empathy Function measures **dynamic alignment between a system's internal state and external feedback**, enabling AI systems to not just predict, but to *interpret* human-like signals through mathematical empathy.
 
-Our implementation is inspired by operator theory and empathy models such as Niko Sauer’s work:
+Classical operator theory (as seen in Sauer’s formulations) updates a system by applying an operator $T$:
 
-```
-y_{t+1} = y_t + λ · cov(y_t, o_t)
-```
+####   **y_{t+1} = T(y_t)**
+
+
+**Our version transforms this rule** into a feedback-alignment mechanism:
+
+### *yt + 1 ​= yt ​+ λ⋅ cov (yt​, ot​)* ###
 
 Where:
 
-* **y\_t**: current system state
-* **o\_t**: external observations
-* **λ**: sensitivity factor
+* **y_t** = current system state (the “self”)
+* **o_t** = external observations (the “other”)
+* **λ** = sensitivity factor regulating responsiveness
+* **cov(y_t, o_t)** = our empathy operator, measuring co-variation between self and other
 
-This equation works as the “heart” of the Empathetic Physics-Informed Neural Network (E-PINN).
+Intuitively: the system is like a heart listening to another’s heartbeat — it doesn’t erase its own rhythm, but shifts slightly toward resonance. That’s the *empathy step*.
 
-##  Why This Project
+---
 
-Traditional ML often struggles with:
+## Getting Started
 
-* Black-box predictions with low interpretability
-* Ignoring physical and behavioral constraints
-* Lack of coherence between internal states and observed outcomes
+### Installation
 
-Our approach:
+Clone the repository and install locally:
 
-*  **Physics-Informed** (conservation, entropy, latency laws)
-*  **Human-Interpretable** (outputs like `3&24` = 3/5 likelihood, class 24)
-*  **Creative** (bridging human sciences + computational modeling)
+```bash
+git clone https://github.com/yourusername/empathy-function.git
+cd empathy-function
+pip install -e .
+```
 
-##  Getting Started
-
-Currently this is a **research prototype**.
-Code lives in this repo in two main modules:
-
-* `empathy_function/` → empathy function implementation
-* `epinn/` → experimental E-PINN model
-
-Example (toy dataset):
+### Quick Example
 
 ```python
-from empathy_function import EmpathyScorer
-from epinn import EPINNModel
+import numpy as np
+from empathy_package import EmpathyScorer, EPINNModel
 
-# Sample data
+# Example dataset
 data = {
     'visits': [980, 1020, 880, 1100, 970],
     'stories': [3, 4, 2, 5, 3],
@@ -64,54 +60,61 @@ data = {
     'sales': [38, 42, 33, 48, 37]
 }
 
-# Calculate empathy scores
-empathy_scorer = EmpathyScorer()
-scores = empathy_scorer.calculate_empathy(data)
+scorer = EmpathyScorer()
+emp_scores = scorer.calculate_empathy(data)
 
-# Train E-PINN model
 model = EPINNModel(physics_constraints=['attention_conservation'])
-model.fit(data, scores)
+model.fit(data, emp_scores)
+preds = model.predict(data)
 
+print("Empathy Scores:", emp_scores)
+print("Predictions:", preds)
 print("Visitor IDs:", model.generate_visitor_ids())
 ```
 
-##  Current Architecture
+---
+
+## Architecture Overview
 
 ```
-Input → Empathy Function → Physics-Informed Training → Output
+Input Features → Empathy Calculation → Physics-Informed Training → Output
 ```
 
-* **Empathy Function**: covariance-based update
-* **Physics Constraints**: attention conservation, diminishing returns, latency
-* **Output**: Propensity & Class ID (`3&24`)
-
-##  Context & Research
-
-This project is part of:
-
-* Master’s thesis in **Art Education & Performance Art** (UNESP)
-* Exploration of **Empathy as Code** in human-computer interfaces
-* Early step toward a PhD-level inquiry in **Data Modeling**
-
-##  Contributing
-
-We invite collaborators interested in:
-
-* Additional physics-informed constraints
-* Visualization of empathy scores
-* Testing on real-world datasets
-* Open discussions on empathy in computational systems
-
-Contact: [@ismaeltrabuco on Telegram](https://t.me/ismaeltrabuco)
-
-##  Maintainer
-
-* **Ismael Trabuco** – Creator & Researcher
-
-  * Master’s student at UNESP (Art Education & Performance Art)
-  * Thesis: *“Spectra-Classroom: The Empathic Interface for a Performance Art of Emotional Mathematics”*
+- **EmpathyScorer**: global mean, principal component, and kNN-based empathy measures.
+- **EPINNModel**: simple linear model with physics-inspired penalties.
+- **Outputs**: propensity scores + class IDs (format: `3&24`).
 
 ---
 
-*"Empathy must become code — not to replace human empathy, but to bridge it with computational intelligence."*
+## Documentation
+- `empathy_package.py`: Core prototype code (EmpathyScorer, EPINNModel)
+- Examples in code docstrings
 
+---
+
+## Contributing
+- Fork, branch, and submit PRs
+- Areas to help: physics constraints, visualization, testing, documentation
+
+Contact: [@ismaeltrabuco](https://t.me/ismaeltrabuco)
+
+---
+
+## Who Maintains This
+- **Ismael Trabuco** – Creator & Lead Developer, M.A. in Art Education & Performance Art (UNESP)
+
+---
+
+## License
+MIT License (see LICENSE file)
+
+---
+
+## Roadmap
+- **v0.1.0**: Core empathy function + simple EPINN proxy 
+- **v0.2.0**: Add TensorFlow/PyTorch backend, real-time scoring
+- **v1.0.0**: scikit-learn compatibility, AutoML empathy tuning, multi-modal empathy
+
+---
+
+Good night — empathy takes time. Tomorrow we continue.
