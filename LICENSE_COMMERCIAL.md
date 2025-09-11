@@ -1,6 +1,6 @@
-# Commercial License
-
 This project is available under the MIT License for personal, academic, and educational use.
+
+# Commercial License
 
 For commercial purposes, including integration into paid products or services, a commercial license is required.
 
